@@ -1,0 +1,280 @@
+.rdrCalendarWrapper {
+  box-sizing: border-box;
+  background: #ffffff;
+  display: -webkit-inline-box;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.rdrDateDisplay{
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+
+.rdrDateDisplayItem{
+  -webkit-box-flex: 1;
+          flex: 1 1;
+  width: 0;
+  text-align: center;
+  color: inherit;
+}
+
+.rdrDateDisplayItem + .rdrDateDisplayItem{
+    margin-left: 0.833em;
+  }
+
+.rdrDateDisplayItem input{
+    text-align: inherit
+  }
+
+.rdrDateDisplayItem input:disabled{
+      cursor: default;
+    }
+
+.rdrDateDisplayItemActive{}
+
+.rdrMonthAndYearWrapper {
+  box-sizing: inherit;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+
+.rdrMonthAndYearPickers{
+  -webkit-box-flex: 1;
+          flex: 1 1 auto;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.rdrMonthPicker{}
+
+.rdrYearPicker{}
+
+.rdrNextPrevButton {
+  box-sizing: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+.rdrPprevButton {}
+
+.rdrNextButton {}
+
+.rdrMonths{
+  display: -webkit-box;
+  display: flex;
+}
+
+.rdrMonthsVertical{
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
+.rdrMonthsHorizontal > div > div > div{
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+}
+
+.rdrMonth{
+  width: 27.667em;
+}
+
+.rdrWeekDays{
+  display: -webkit-box;
+  display: flex;
+}
+
+.rdrWeekDay {
+  flex-basis: calc(100% / 7);
+  box-sizing: inherit;
+  text-align: center;
+}
+
+.rdrDays{
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.rdrDateDisplayWrapper{}
+
+.rdrMonthName{}
+
+.rdrInfiniteMonths{
+  overflow: auto;
+}
+
+[data-simplebar] .simplebar-content {
+    display: -webkit-box;
+    display: flex;
+  }
+
+[data-simplebar] .simplebar-content-wrapper {
+    display: -webkit-box;
+    display: flex;
+  }
+
+.rdrDateRangeWrapper{
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.rdrDateInput {
+  position: relative;
+}
+
+.rdrDateInput input {
+    outline: none;
+  }
+
+.rdrDateInput .rdrWarning {
+    position: absolute;
+    font-size: 1.6em;
+    line-height: 1.6em;
+    top: 0;
+    right: .25em;
+    color: #FF0000;
+  }
+
+.rdrDay {
+  box-sizing: inherit;
+  width: calc(100% / 7);
+  position: relative;
+  font: inherit;
+  cursor: pointer;
+}
+
+.rdrDayNumber {
+  display: block;
+  position: relative;
+}
+
+.rdrDayNumber span{
+    color: #1d2429;
+  }
+
+.rdrDayDisabled {
+  cursor: not-allowed;
+}
+
+@supports (-ms-ime-align: auto) {
+  .rdrDay {
+    flex-basis: 14.285% !important;
+  }
+}
+
+.rdrSelected, .rdrInRange, .rdrStartEdge, .rdrEndEdge{
+  pointer-events: none;
+}
+
+.rdrInRange{}
+
+.rdrDayStartPreview, .rdrDayInPreview, .rdrDayEndPreview{
+  pointer-events: none;
+}
+
+.rdrDayHovered{}
+
+.rdrDayActive{}
+
+.rdrDateRangePickerWrapper{
+  display: -webkit-inline-box;
+  display: inline-flex;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.rdrDefinedRangesWrapper{}
+
+.rdrStaticRanges{
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
+.rdrStaticRange{
+  font-size: inherit;
+}
+
+.rdrStaticRangeLabel{}
+
+.rdrInputRanges{}
+
+.rdrInputRange{
+  display: -webkit-box;
+  display: flex;
+}
+
+.rdrInputRangeInput{}
+
+[data-simplebar]{position:relative;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column;flex-wrap:wrap;-webkit-box-pack:start;justify-content:flex-start;align-content:flex-start;-webkit-box-align:start;align-items:flex-start}
+
+.simplebar-wrapper{overflow:hidden;width:inherit;height:inherit;max-width:inherit;max-height:inherit}
+
+.simplebar-mask{direction:inherit;position:absolute;overflow:hidden;padding:0;margin:0;left:0;top:0;bottom:0;right:0;width:auto!important;height:auto!important;z-index:0}
+
+.simplebar-offset{direction:inherit!important;box-sizing:inherit!important;resize:none!important;position:absolute;top:0;left:0;bottom:0;right:0;padding:0;margin:0;-webkit-overflow-scrolling:touch}
+
+.simplebar-content-wrapper{direction:inherit;box-sizing:border-box!important;position:relative;display:block;height:100%;width:auto;max-width:100%;max-height:100%;scrollbar-width:none;-ms-overflow-style:none}
+
+.simplebar-content-wrapper::-webkit-scrollbar,.simplebar-hide-scrollbar::-webkit-scrollbar{width:0;height:0}
+
+.simplebar-content:after,.simplebar-content:before{content:' ';display:table}
+
+.simplebar-placeholder{max-height:100%;max-width:100%;width:100%;pointer-events:none}
+
+.simplebar-height-auto-observer-wrapper{box-sizing:inherit!important;height:100%;width:100%;max-width:1px;position:relative;float:left;max-height:1px;overflow:hidden;z-index:-1;padding:0;margin:0;pointer-events:none;-webkit-box-flex:inherit;flex-grow:inherit;flex-shrink:0;flex-basis:0}
+
+.simplebar-height-auto-observer{box-sizing:inherit;display:block;opacity:0;position:absolute;top:0;left:0;height:1000%;width:1000%;min-height:1px;min-width:1px;overflow:hidden;pointer-events:none;z-index:-1}
+
+.simplebar-track{z-index:1;position:absolute;right:0;bottom:0;pointer-events:none;overflow:hidden}
+
+[data-simplebar].simplebar-dragging .simplebar-content{pointer-events:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-user-select:none}
+
+[data-simplebar].simplebar-dragging .simplebar-track{pointer-events:all}
+
+.simplebar-scrollbar{position:absolute;left:0;right:0;min-height:10px}
+
+.simplebar-scrollbar:before{position:absolute;content:'';background:#000;border-radius:7px;left:2px;right:2px;opacity:0;-webkit-transition:opacity .2s linear;transition:opacity .2s linear}
+
+.simplebar-scrollbar.simplebar-visible:before{opacity:.5;-webkit-transition:opacity 0s linear;transition:opacity 0s linear}
+
+.simplebar-track.simplebar-vertical{top:0;width:11px}
+
+.simplebar-track.simplebar-vertical .simplebar-scrollbar:before{top:2px;bottom:2px}
+
+.simplebar-track.simplebar-horizontal{left:0;height:11px}
+
+.simplebar-track.simplebar-horizontal .simplebar-scrollbar:before{height:100%;left:2px;right:2px}
+
+.simplebar-track.simplebar-horizontal .simplebar-scrollbar{right:auto;left:0;top:2px;height:7px;min-height:0;min-width:10px;width:auto}
+
+[data-simplebar-direction=rtl] .simplebar-track.simplebar-vertical{right:auto;left:0}
+
+.hs-dummy-scrollbar-size{direction:rtl;position:fixed;opacity:0;visibility:hidden;height:500px;width:500px;overflow-y:hidden;overflow-x:scroll}
+
+.simplebar-hide-scrollbar{position:fixed;left:0;visibility:hidden;overflow-y:scroll;scrollbar-width:none;-ms-overflow-style:none}
