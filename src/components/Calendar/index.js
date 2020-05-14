@@ -7,6 +7,8 @@ import { calcFocusDate, generateStyles, getMonthDisplayRange } from '../../utils
 import classnames from 'classnames';
 import ReactList from 'react-list';
 import { shallowEqualObjects } from 'shallow-equal';
+import SimpleBar from 'simplebar-react';
+
 import {
   addMonths,
   format,
@@ -406,7 +408,7 @@ class Calendar extends PureComponent {
         {scroll.enabled ? (
           <div>
             {isVertical && this.renderWeekdays(this.dateOptions)}
-            <div
+            <SimpleBar
               className={classnames(
                 this.styles.infiniteMonths,
                 isVertical ? this.styles.monthsVertical : this.styles.monthsHorizontal
@@ -415,6 +417,7 @@ class Calendar extends PureComponent {
               style={{
                 width: scrollArea.calendarWidth + 11,
                 height: scrollArea.calendarHeight + 11,
+                maxHeight: scrollArea.calendarHeight + 11,
               }}
               onScroll={this.handleScroll}>
               <ReactList
@@ -457,7 +460,7 @@ class Calendar extends PureComponent {
                   );
                 }}
               />
-            </div>
+            </SimpleBar>
           </div>
         ) : (
           <div

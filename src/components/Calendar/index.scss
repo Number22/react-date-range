@@ -95,3 +95,14 @@
 .rdrInfiniteMonths{
   overflow: auto;
 }
+
+[data-simplebar] {
+  .simplebar-content {
+    display: flex;
+  }
+  
+  .simplebar-content-wrapper {
+    display: flex;
+  }
+}
+
