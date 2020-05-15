@@ -410,6 +410,7 @@ function (_PureComponent) {
         return;
       }
 
+      console.log(_this.simpleBar);
       var _this$simpleBar = _this.simpleBar,
           offsetHeight = _this$simpleBar.offsetHeight,
           scrollTop = _this$simpleBar.scrollTop,
@@ -418,8 +419,6 @@ function (_PureComponent) {
       var size = offsetHeight;
       var fullSize = scrollHeight;
       var offset = scrollTop;
-      console.log(size, fullSize, offset);
-      console.log(_this.state);
 
       if (size === fullSize || _this.props.isNotFadingScroll) {
         currentScrollState = 'none';
@@ -625,7 +624,7 @@ function (_PureComponent) {
         onScroll: this.handleScroll
       }, _react["default"].createElement(_reactList["default"], {
         length: (0, _dateFns.differenceInCalendarMonths)((0, _dateFns.endOfMonth)(maxDate), (0, _dateFns.addDays)((0, _dateFns.startOfMonth)(minDate), -1), this.dateOptions),
-        treshold: 500,
+        treshold: 700,
         type: "variable",
         ref: function ref(target) {
           return _this5.list = target;

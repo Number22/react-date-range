@@ -379,14 +379,13 @@ class Calendar extends PureComponent {
       return;
     }
 
+    console.log(this.simpleBar);
+
     const { offsetHeight, scrollTop, scrollHeight } = this.simpleBar;
     let currentScrollState = 'none';
     const size = offsetHeight;
     const fullSize = scrollHeight;
     const offset = scrollTop;
-
-    console.log(size, fullSize, offset);
-    console.log(this.state);
 
     if (size === fullSize || this.props.isNotFadingScroll) {
       currentScrollState = 'none';
@@ -466,7 +465,7 @@ class Calendar extends PureComponent {
                   addDays(startOfMonth(minDate), -1),
                   this.dateOptions
                 )}
-                treshold={500}
+                treshold={700}
                 type="variable"
                 ref={target => (this.list = target)}
                 itemSizeEstimator={this.estimateMonthSize}
