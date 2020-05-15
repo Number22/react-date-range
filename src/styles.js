@@ -47,7 +47,12 @@ export default {
   staticRangeLabel: 'rdrStaticRangeLabel',
   staticRangeSelected: 'rdrStaticRangeSelected',
   monthName: 'rdrMonthName',
+  monthYearName: 'rdrMonthYearName',
   infiniteMonths: 'rdrInfiniteMonths',
   monthsVertical: 'rdrMonthsVertical',
   monthsHorizontal: 'rdrMonthsHorizontal',
+  scrollWrapper: 'rdrScrollWrapper',
+  scrollStartWrapper: 'rdrScrollStartWrapper',
+  scrollEndWrapper: 'rdrScrollEndWrapper',
+  scrollActiveWrapper: 'rdrScrollActiveWrapper',
 };

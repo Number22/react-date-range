@@ -62,6 +62,9 @@ class Month extends PureComponent {
         {this.props.showMonthName ? (
           <div className={styles.monthName}>
             {format(this.props.month, this.props.monthDisplayFormat, this.props.dateOptions)}
+            <div className={styles.monthYearName}>
+              {format(this.props.month, this.props.yearDisplayFormat, this.props.dateOptions)}
+            </div>
           </div>
         ) : null}
         {this.props.showWeekDays &&
@@ -135,6 +138,7 @@ Month.propTypes = {
   onDragSelectionEnd: PropTypes.func,
   onDragSelectionMove: PropTypes.func,
   onMouseLeave: PropTypes.func,
+  yearDisplayFormat: PropTypes.string,
   monthDisplayFormat: PropTypes.string,
   weekdayDisplayFormat: PropTypes.string,
   dayDisplayFormat: PropTypes.string,

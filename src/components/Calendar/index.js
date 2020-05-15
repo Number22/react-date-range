@@ -373,6 +373,36 @@ class Calendar extends PureComponent {
     const isLongMonth = differenceInDays(end, start, this.dateOptions) + 1 > 7 * 5;
     return isLongMonth ? scrollArea.longMonthHeight : scrollArea.monthHeight;
   };
+
+  spotScrollState = () => {
+    if (!this.simpleBar) {
+      return;
+    }
+
+    const { offsetHeight, scrollTop, scrollHeight } = this.simpleBar;
+    let currentScrollState = 'none';
+    const size = offsetHeight;
+    const fullSize = scrollHeight;
+    const offset = scrollTop;
+
+    console.log(size, fullSize, offset);
+    console.log(this.state);
+
+    if (size === fullSize || this.props.isNotFadingScroll) {
+      currentScrollState = 'none';
+    } else if (offset <= 0) {
+      currentScrollState = 'start';
+    } else if (size + offset >= fullSize) {
+      currentScrollState = 'end';
+    } else {
+      currentScrollState = 'active';
+    }
+
+    this.setState({
+      currentScrollState,
+    });
+  };
+
   render() {
     const {
       showDateDisplay,
@@ -406,13 +436,23 @@ class Calendar extends PureComponent {
         {showDateDisplay && this.renderDateDisplay()}
         {monthAndYearRenderer(focusedDate, this.changeShownDate, this.props)}
         {scroll.enabled ? (
-          <div>
+          <div
+            className={classnames(
+              this.styles.scrollWrapper,
+              this.state.currentScrollState === 'start' && this.styles.scrollStartWrapper,
+              this.state.currentScrollState === 'end' && this.styles.scrollEndWrapper,
+              this.state.currentScrollState === 'active' && this.styles.scrollActiveWrapper
+            )}>
             {isVertical && this.renderWeekdays(this.dateOptions)}
             <SimpleBar
               className={classnames(
                 this.styles.infiniteMonths,
                 isVertical ? this.styles.monthsVertical : this.styles.monthsHorizontal
               )}
+              scrollableNodeProps={{
+                ref: target => (this.simpleBar = target),
+                onScroll: () => this.spotScrollState(),
+              }}
               onMouseLeave={() => onPreviewChange && onPreviewChange()}
               style={{
                 width: scrollArea.calendarWidth + 11,
@@ -507,9 +547,10 @@ Calendar.defaultProps = {
   ranges: [],
   focusedRange: [0, 0],
   dateDisplayFormat: 'MMM d, yyyy',
-  monthDisplayFormat: 'MMM yyyy',
+  monthDisplayFormat: 'MMMM',
   weekdayDisplayFormat: 'E',
   dayDisplayFormat: 'd',
+  yearDisplayFormat: 'yyyy',
   showDateDisplay: true,
   showPreview: true,
   displayMode: 'date',
@@ -527,6 +568,7 @@ Calendar.defaultProps = {
   editableDateInputs: false,
   dragSelectionEnabled: true,
   fixedHeight: false,
+  isNotFadingScroll: false,
 };
 
 Calendar.propTypes = {
@@ -552,6 +594,7 @@ Calendar.propTypes = {
   dateDisplayFormat: PropTypes.string,
   monthDisplayFormat: PropTypes.string,
   weekdayDisplayFormat: PropTypes.string,
+  yearDisplayFormat: PropTypes.string,
   weekStartsOn: PropTypes.number,
   dayDisplayFormat: PropTypes.string,
   focusedRange: PropTypes.arrayOf(PropTypes.number),
@@ -579,6 +622,7 @@ Calendar.propTypes = {
   editableDateInputs: PropTypes.bool,
   dragSelectionEnabled: PropTypes.bool,
   fixedHeight: PropTypes.bool,
+  isNotFadingScroll: PropTypes.bool,
 };
 
 export default Calendar;

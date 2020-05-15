@@ -129,7 +129,8 @@ onPreviewChange(DateRange)           | Object    |                  | Callback f
 dateDisplayFormat                    | String    | `MMM d, yyyy`    | selected range preview formatter. Check out [date-fns's format option](https://date-fns.org/docs/format)
 dayDisplayFormat                     | String    | `d`              | selected range preview formatter. Check out [date-fns's format option](https://date-fns.org/docs/format)
 weekdayDisplayFormat                 | String    | `E`              | selected range preview formatter. Check out [date-fns's format option](https://date-fns.org/docs/format)
-monthDisplayFormat                   | String    | `MMM yyyy`       | selected range preview formatter. Check out [date-fns's format option](https://date-fns.org/docs/format)
+monthDisplayFormat                   | String    | `MMMM`           | selected range preview formatter. Check out [date-fns's format option](https://date-fns.org/docs/format)
+yearDisplayFormat                    | String    | `yyyy`           | selected range preview formatter. Check out [date-fns's format option](https://date-fns.org/docs/format)
 weekStartsOn                         | Number    |                  | Whether the week start day that comes from the locale will be overriden. Default value comes from your locale, if no local is specified, note that default locale is enUS
 startDatePlaceholder                 | String    | `Early`          | Start Date Placeholder
 endDatePlaceholder                   | String    | `Continuous`     | End Date Placeholder
