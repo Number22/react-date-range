@@ -53,8 +53,13 @@ var _default = {
   staticRangeLabel: 'rdrStaticRangeLabel',
   staticRangeSelected: 'rdrStaticRangeSelected',
   monthName: 'rdrMonthName',
+  monthYearName: 'rdrMonthYearName',
   infiniteMonths: 'rdrInfiniteMonths',
   monthsVertical: 'rdrMonthsVertical',
-  monthsHorizontal: 'rdrMonthsHorizontal'
+  monthsHorizontal: 'rdrMonthsHorizontal',
+  scrollWrapper: 'rdrScrollWrapper',
+  scrollStartWrapper: 'rdrScrollStartWrapper',
+  scrollEndWrapper: 'rdrScrollEndWrapper',
+  scrollActiveWrapper: 'rdrScrollActiveWrapper'
 };
 exports["default"] = _default;

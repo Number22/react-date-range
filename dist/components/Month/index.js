@@ -109,7 +109,9 @@ function (_PureComponent) {
         style: this.props.style
       }, this.props.showMonthName ? _react["default"].createElement("div", {
         className: styles.monthName
-      }, (0, _dateFns.format)(this.props.month, this.props.monthDisplayFormat, this.props.dateOptions)) : null, this.props.showWeekDays && renderWeekdays(styles, this.props.dateOptions, this.props.weekdayDisplayFormat), _react["default"].createElement("div", {
+      }, (0, _dateFns.format)(this.props.month, this.props.monthDisplayFormat, this.props.dateOptions), _react["default"].createElement("div", {
+        className: styles.monthYearName
+      }, (0, _dateFns.format)(this.props.month, this.props.yearDisplayFormat, this.props.dateOptions))) : null, this.props.showWeekDays && renderWeekdays(styles, this.props.dateOptions, this.props.weekdayDisplayFormat), _react["default"].createElement("div", {
         className: styles.days,
         onMouseLeave: this.props.onMouseLeave
       }, (0, _dateFns.eachDayOfInterval)({
@@ -174,6 +176,7 @@ Month.propTypes = {
   onDragSelectionEnd: _propTypes["default"].func,
   onDragSelectionMove: _propTypes["default"].func,
   onMouseLeave: _propTypes["default"].func,
+  yearDisplayFormat: _propTypes["default"].string,
   monthDisplayFormat: _propTypes["default"].string,
   weekdayDisplayFormat: _propTypes["default"].string,
   dayDisplayFormat: _propTypes["default"].string,

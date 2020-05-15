@@ -405,6 +405,37 @@ function (_PureComponent) {
       return isLongMonth ? scrollArea.longMonthHeight : scrollArea.monthHeight;
     });
 
+    _defineProperty(_assertThisInitialized(_this), "spotScrollState", function () {
+      if (!_this.simpleBar) {
+        return;
+      }
+
+      var _this$simpleBar = _this.simpleBar,
+          offsetHeight = _this$simpleBar.offsetHeight,
+          scrollTop = _this$simpleBar.scrollTop,
+          scrollHeight = _this$simpleBar.scrollHeight;
+      var currentScrollState = 'none';
+      var size = offsetHeight;
+      var fullSize = scrollHeight;
+      var offset = scrollTop;
+      console.log(size, fullSize, offset);
+      console.log(_this.state);
+
+      if (size === fullSize || _this.props.isNotFadingScroll) {
+        currentScrollState = 'none';
+      } else if (offset <= 0) {
+        currentScrollState = 'start';
+      } else if (size + offset >= fullSize) {
+        currentScrollState = 'end';
+      } else {
+        currentScrollState = 'active';
+      }
+
+      _this.setState({
+        currentScrollState: currentScrollState
+      });
+    });
+
     _this.dateOptions = {
       locale: _props.locale
     };
@@ -571,8 +602,18 @@ function (_PureComponent) {
             }
           });
         }
-      }, showDateDisplay && this.renderDateDisplay(), monthAndYearRenderer(focusedDate, this.changeShownDate, this.props), scroll.enabled ? _react["default"].createElement("div", null, isVertical && this.renderWeekdays(this.dateOptions), _react["default"].createElement(_simplebarReact["default"], {
+      }, showDateDisplay && this.renderDateDisplay(), monthAndYearRenderer(focusedDate, this.changeShownDate, this.props), scroll.enabled ? _react["default"].createElement("div", {
+        className: (0, _classnames3["default"])(this.styles.scrollWrapper, this.state.currentScrollState === 'start' && this.styles.scrollStartWrapper, this.state.currentScrollState === 'end' && this.styles.scrollEndWrapper, this.state.currentScrollState === 'active' && this.styles.scrollActiveWrapper)
+      }, isVertical && this.renderWeekdays(this.dateOptions), _react["default"].createElement(_simplebarReact["default"], {
         className: (0, _classnames3["default"])(this.styles.infiniteMonths, isVertical ? this.styles.monthsVertical : this.styles.monthsHorizontal),
+        scrollableNodeProps: {
+          ref: function ref(target) {
+            return _this5.simpleBar = target;
+          },
+          onScroll: function onScroll() {
+            return _this5.spotScrollState();
+          }
+        },
         onMouseLeave: function onMouseLeave() {
           return onPreviewChange && onPreviewChange();
         },
@@ -658,9 +699,10 @@ Calendar.defaultProps = {
   ranges: [],
   focusedRange: [0, 0],
   dateDisplayFormat: 'MMM d, yyyy',
-  monthDisplayFormat: 'MMM yyyy',
+  monthDisplayFormat: 'MMMM',
   weekdayDisplayFormat: 'E',
   dayDisplayFormat: 'd',
+  yearDisplayFormat: 'yyyy',
   showDateDisplay: true,
   showPreview: true,
   displayMode: 'date',
@@ -677,7 +719,8 @@ Calendar.defaultProps = {
   endDatePlaceholder: 'Continuous',
   editableDateInputs: false,
   dragSelectionEnabled: true,
-  fixedHeight: false
+  fixedHeight: false,
+  isNotFadingScroll: false
 };
 Calendar.propTypes = {
   showMonthArrow: _propTypes["default"].bool,
@@ -702,6 +745,7 @@ Calendar.propTypes = {
   dateDisplayFormat: _propTypes["default"].string,
   monthDisplayFormat: _propTypes["default"].string,
   weekdayDisplayFormat: _propTypes["default"].string,
+  yearDisplayFormat: _propTypes["default"].string,
   weekStartsOn: _propTypes["default"].number,
   dayDisplayFormat: _propTypes["default"].string,
   focusedRange: _propTypes["default"].arrayOf(_propTypes["default"].number),
@@ -728,7 +772,8 @@ Calendar.propTypes = {
   rangeColors: _propTypes["default"].arrayOf(_propTypes["default"].string),
   editableDateInputs: _propTypes["default"].bool,
   dragSelectionEnabled: _propTypes["default"].bool,
-  fixedHeight: _propTypes["default"].bool
+  fixedHeight: _propTypes["default"].bool,
+  isNotFadingScroll: _propTypes["default"].bool
 };
 var _default = Calendar;
 exports["default"] = _default;
