@@ -410,7 +410,6 @@ function (_PureComponent) {
         return;
       }
 
-      console.log(_this.simpleBar);
       var _this$simpleBar = _this.simpleBar,
           offsetHeight = _this$simpleBar.offsetHeight,
           scrollTop = _this$simpleBar.scrollTop,

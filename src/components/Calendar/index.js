@@ -379,8 +379,6 @@ class Calendar extends PureComponent {
       return;
     }
 
-    console.log(this.simpleBar);
-
     const { offsetHeight, scrollTop, scrollHeight } = this.simpleBar;
     let currentScrollState = 'none';
     const size = offsetHeight;
