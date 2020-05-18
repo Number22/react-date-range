@@ -623,13 +623,14 @@ function (_PureComponent) {
         onScroll: this.handleScroll
       }, _react["default"].createElement(_reactList["default"], {
         length: (0, _dateFns.differenceInCalendarMonths)((0, _dateFns.endOfMonth)(maxDate), (0, _dateFns.addDays)((0, _dateFns.startOfMonth)(minDate), -1), this.dateOptions),
-        treshold: 700,
+        treshold: 100,
         type: "variable",
         ref: function ref(target) {
           return _this5.list = target;
         },
         itemSizeEstimator: this.estimateMonthSize,
         axis: isVertical ? 'y' : 'x',
+        useTranslate3d: true,
         itemRenderer: function itemRenderer(index, key) {
           var monthStep = (0, _dateFns.addMonths)(minDate, index);
           return _react["default"].createElement(_Month["default"], _extends({}, _this5.props, {

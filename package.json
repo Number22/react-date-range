@@ -39,7 +39,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
-    "react-list": "^0.8.13",
+    "react-list": "^0.8.15",
     "shallow-equal": "^1.2.1",
     "simplebar-react": "^2.2.0"
   },

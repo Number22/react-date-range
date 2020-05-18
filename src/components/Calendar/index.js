@@ -463,11 +463,12 @@ class Calendar extends PureComponent {
                   addDays(startOfMonth(minDate), -1),
                   this.dateOptions
                 )}
-                treshold={700}
+                treshold={100}
                 type="variable"
                 ref={target => (this.list = target)}
                 itemSizeEstimator={this.estimateMonthSize}
                 axis={isVertical ? 'y' : 'x'}
+                useTranslate3d={true}
                 itemRenderer={(index, key) => {
                   const monthStep = addMonths(minDate, index);
                   return (
